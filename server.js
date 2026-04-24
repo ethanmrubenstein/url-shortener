@@ -47,3 +47,8 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`URL Shortener listening on http://localhost:${PORT}`);
 });
+
+process.on("unhandledRejection", (error) => {
+  console.log(`Error: ${error}`);
+  process.exit(1);
+});
