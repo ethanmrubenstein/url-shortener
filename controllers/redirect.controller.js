@@ -9,7 +9,7 @@ exports.redirect = async (req, res) => {
 
   if (SLUG.length > ID_LENGTH) {
     return res.redirect(
-      `https://cdn.ethanthegreat.com/uploads/${DISCORD_USER_ID}/${SLUG}`,
+      `https://${CDN_URL}/uploads/${DISCORD_USER_ID}/${SLUG}`,
     );
   }
 
