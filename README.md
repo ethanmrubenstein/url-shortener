@@ -46,12 +46,13 @@ A minimal URL shortening service built with Express and MongoDB. Generates short
 
 ### Environment Variables
 
-| Variable            | Description                                             | Default |
-| ------------------- | ------------------------------------------------------- | ------- |
-| `PORT`              | Port the Express server listens on                      | `3000`  |
-| `MONGO_CONN_STRING` | MongoDB connection string                               | —       |
-| `DISCORD_USER_ID`   | Discord user ID used for the CDN passthrough redirect   | —       |
-| `ID_LENGTH`         | Length of generated slugs                               | `10`    |
+| Variable            | Description                                                                      | Default |
+| ------------------- | -------------------------------------------------------------------------------- | ------- |
+| `PORT`              | Port the Express server listens on                                               | `3000`  |
+| `MONGO_CONN_STRING` | MongoDB connection string                                                        | —       |
+| `CDN_URL`           | Host for the long-slug CDN passthrough (e.g. `cdn.example.com`). Optional.       | —       |
+| `DISCORD_USER_ID`   | User ID segment used in the CDN passthrough path. Optional.                      | —       |
+| `ID_LENGTH`         | Length of generated slugs                                                        | `10`    |
 
 ## Running
 
@@ -86,10 +87,8 @@ GET /:slug
 ```
 
 - If `slug.length <= ID_LENGTH`: looks up the stored URL, increments `clicks`, updates `lastClickedAt`, and redirects to the original URL.
-- If `slug.length > ID_LENGTH`: redirects to `https://cdn.ethanthegreat.com/uploads/${DISCORD_USER_ID}/${slug}` (CDN passthrough — see note below).
+- If `slug.length > ID_LENGTH`: redirects to `https://${CDN_URL}/uploads/${DISCORD_USER_ID}/${slug}` — a CDN passthrough using the `CDN_URL` and `DISCORD_USER_ID` env vars. If you don't need this, leave those vars blank and avoid sending slugs longer than `ID_LENGTH`.
 - Unknown slugs return `404 Not Found`.
-
-> **Personal use feature:** The long-slug CDN passthrough in [redirect.controller.js](controllers/redirect.controller.js) is hardcoded to `cdn.ethanthegreat.com`. If you're forking this, you probably want to remove that branch or replace the domain with your own (ideally via an env var).
 
 ## Rate Limiting
 
