@@ -2,7 +2,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 // Dotenv Configuration
-dotenv.config();
+dotenv.config({ quiet: true });
 const colors = require("colors");
 const rateLimit = require("express-rate-limit");
 const helmet = require("helmet");
