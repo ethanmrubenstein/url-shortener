@@ -49,6 +49,7 @@ A minimal URL shortening service built with Express and MongoDB. Generates short
 | Variable            | Description                                                                      | Default |
 | ------------------- | -------------------------------------------------------------------------------- | ------- |
 | `PORT`              | Port the Express server listens on                                               | `3000`  |
+| `BASE_URL`          | Base URL used in shortened URL responses (e.g. `https://short.example.com`)      | `http://localhost:${PORT}` |
 | `MONGO_CONN_STRING` | MongoDB connection string                                                        | —       |
 | `CDN_URL`           | Host for the long-slug CDN passthrough (e.g. `cdn.example.com`). Optional.       | —       |
 | `DISCORD_USER_ID`   | User ID segment used in the CDN passthrough path. Optional.                      | —       |
