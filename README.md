@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D18-brightgreen.svg)](https://nodejs.org/)
 
-A minimal URL shortening service built with Express and MongoDB. Generates short slugs via [nanoid](https://github.com/ai/nanoid) and tracks click counts.
+A minimal URL shortening service built with Express and MongoDB. Generates short slugs via [nanoid](https://github.com/ai/nanoid) and tracks click counts. Optionally passes longer slugs through to a configurable CDN.
 
 ## Tech Stack
 
