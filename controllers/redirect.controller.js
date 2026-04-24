@@ -15,7 +15,7 @@ exports.redirect = async (req, res) => {
 
   try {
     const shortenedUrl = await Url.findOneAndUpdate(
-      { slug: req.params.slug },
+      { slug: SLUG },
       { $inc: { clicks: 1 }, lastClickedAt: Date.now() },
     );
     res.redirect(shortenedUrl.full);
