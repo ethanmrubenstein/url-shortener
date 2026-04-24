@@ -1,0 +1,26 @@
+{
+  "name": "url-shortener",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "author": "Ethan Rubenstein",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server",
+    "start": "node server"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.4.0",
+    "helmet": "^8.1.0",
+    "hpp": "^0.2.3",
+    "mongoose": "^9.5.0",
+    "nanoid": "^5.1.9"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
