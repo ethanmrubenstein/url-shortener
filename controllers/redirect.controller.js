@@ -1,6 +1,7 @@
 const Url = require("../models/Url");
 
 const DISCORD_USER_ID = process.env.DISCORD_USER_ID;
+const CDN_URL = process.env.CDN_URL;
 const ID_LENGTH = process.env.ID_LENGTH || 10;
 
 exports.redirect = async (req, res) => {
