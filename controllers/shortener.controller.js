@@ -5,5 +5,6 @@ exports.shortener = async (req, res) => {
 
   const shortenedUrl = await Url.create({ full: fullUrl });
 
-  res.send(`http://localhost:3000/${shortenedUrl.slug}`);
+  const baseUrl = process.env.BASE_URL || `http://localhost:${process.env.PORT || 3000}`;
+  res.send(`${baseUrl}/${shortenedUrl.slug}`);
 };
