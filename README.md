@@ -77,9 +77,7 @@ The server will start on `http://localhost:${PORT}`.
 GET /s?url=https://example.com/some/long/path
 ```
 
-Responds with the shortened URL, e.g. `http://localhost:3000/aB3xYz9qKp`.
-
-> **Note:** The base URL in the response is currently hardcoded to `http://localhost:3000` in [shortener.controller.js](controllers/shortener.controller.js). If you deploy this, you'll want to make it configurable via an env var.
+Responds with the shortened URL, e.g. `http://localhost:3000/aB3xYz9qKp`. Set `BASE_URL` to override the host used in the response when deploying.
 
 ### Follow a Short URL
 
