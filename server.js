@@ -28,6 +28,11 @@ app.use(limiter);
 app.use(helmet());
 app.use(hpp());
 
+// Root route
+app.get("/", (req, res) => {
+  res.send("Welcome to the URL Shortener");
+});
+
 // Shortener Routes
 app.use("/s", shortenerRoutes);
 
